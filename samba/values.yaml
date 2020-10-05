@@ -1,0 +1,22 @@
+fullnameOverride: samba
+image:
+    repository: dperson/samba
+    tag: amd64
+    pullPolicy: IfNotPresent
+replicaCount: 2
+antiaff:
+    enabled: true
+    strict: true
+nmbd: false
+permissions: false
+smb: true
+disableRecycle: true
+wideLinks: true
+hostNetwork: "false"
+workgroup: WORKGROUP
+serviceTCP:
+    type: LoadBalancer
+    externalTrafficPolicy: Local
+serviceUDP:
+    type: LoadBalancer
+    externalTrafficPolicy: Local
