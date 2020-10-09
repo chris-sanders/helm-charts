@@ -1,0 +1,95 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "sftp.fullname" . }}
+  labels:
+    app: {{ template "sftp.name" . }}
+    chart: {{ template "sftp.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: {{ template "sftp.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      annotations:
+      labels:
+        app: {{ template "sftp.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      {{- if .Values.antiaff.enabled }}
+      affinity:
+        podAntiAffinity:
+        {{- if .Values.antiaff.strict }}
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+        {{- else }}
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:  
+              labelSelector:
+        {{- end }}
+                matchExpressions:
+                - key: release
+                  operator: In
+                  values:
+                  - {{ .Release.Name }}
+              topologyKey: "kubernetes.io/hostname"
+      {{- end }}
+      hostNetwork: {{ .Values.hostNetwork }}
+      containers:
+        - name: {{ .Chart.Name }}
+          env:
+          {{- if .Values.users }}
+          - name: SFTP_USERS
+            value: {{ range $idx, $map := .Values.users -}}
+            {{ $map.user -}}:{{- $map.pass -}}
+            {{- if $map.uid -}}
+                :{{- $map.uid -}}
+            {{- end -}}
+            {{- if $map.gid -}}
+                :{{- $map.gid -}}
+            {{- end -}}
+            {{- if $map.dirs -}}
+                :{{- $map.dirs -}}
+            {{- end -}}
+                {{ " " }}
+            {{- end -}}
+          {{- end }}
+          {{- if .Values.envSecret }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.envSecret }}
+          {{- end }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          readinessProbe:
+            tcpSocket:
+              port: {{ .Values.sshPort }}
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: {{ .Values.sshPort }}
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          ports:
+            - containerPort: {{ .Values.sshPort }}
+              name: sftp-ssh
+              protocol: TCP
+          {{- if .Values.volumeMounts }}
+          volumeMounts:
+            {{- toYaml .Values.volumeMounts | nindent 12 }}
+          {{- end }}
+      {{- if .Values.volumes }}
+      volumes:
+        {{- toYaml .Values.volumes | nindent 9 }}
+      {{- end }}

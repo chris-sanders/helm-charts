@@ -1,7 +1,7 @@
-name: samba
+name: sftp
 apiVersion: v2
 version: 1.0.0
-description: Samba server
+description: Sftp server based on atmoz/sftp
 maintainers:
     - name: chris-sanders
       email: sanders.chris@gmail.com

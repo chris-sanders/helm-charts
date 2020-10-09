@@ -1,0 +1,87 @@
+# Override fullname
+fullnameOverride: ""
+
+image:
+    repository: atmoz/sftp
+    tag: alpine
+    pullPolicy: IfNotPresent
+
+service:
+    type: LoadBalancer
+    annotations: {}
+
+# Number of replicas
+replicaCount: 2
+
+# Enable anti affinity
+antiaff:
+    enabled: true
+    strict: true
+
+# Use hostNetwork
+hostNetwork: false
+
+# Port for ssh connections
+sshPort: 22
+
+# Configure Users, all values are optional except user/pass
+# See https://github.com/atmoz/sftp for details
+# users:
+#   - user: user1
+#     pass: pass1:e    # Append -e if encrypted
+#     uid: 1001        # user id
+#     gid: 1001        # group id
+#     dirs: dir1,dir2  # Directories to create if not present
+
+# Configure additional volumes
+# volumes:
+#     - name: sftp-host-keys
+#       secret:
+#           secretName: sftp-host-keys
+#           defaultMode: 0600
+#     - name: volume1
+#       persistentVolumeClaim:
+#           claimName: volume1-claim
+
+# Configure additional volumeMounts
+# volumeMounts:
+#     - mountPath: /etc/ssh/ssh_host_ed25519_key
+#       name: sftp-host-keys
+#       subPath: ssh_host_ed25519_key
+#       readOnly: true
+#     - mountPath: /etc/ssh/ssh_host_ed25519_key.pub
+#       name: sftp-host-keys
+#       subPath: ssh_host_ed25519_key.pub
+#       readOnly: true
+#     - mountPath: /etc/ssh/ssh_host_rsa_key
+#       name: sftp-host-keys
+#       subPath: ssh_host_rsa_key
+#       readOnly: true
+#     - mountPath: /etc/ssh/ssh_host_rsa_key.pub
+#       name: sftp-host-keys
+#       subPath: ssh_host_rsa_key.pub
+#       readOnly: true
+#     - name: volume1
+#       mountPath: /mnt/volume1
+
+# With the above key examples, the secrete would follow as:
+# ---
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   name: sftp-host-keys
+#   namespace: sftp
+# stringData:
+#   ssh_host_ed25519_key: |
+#     -----BEGIN OPENSSH PRIVATE KEY-----
+#     ...
+#     -----END OPENSSH PRIVATE KEY-----
+#   ssh_host_ed25519_key.pub: |
+#     ssh-ed25519 AAAA...
+#   ssh_host_rsa_key: |
+#     -----BEGIN RSA PRIVATE KEY-----
+#     ...
+#     -----END RSA PRIVATE KEY-----
+#   ssh_host_rsa_key.pub: |
+#     ssh-rsa AAAA...
+# type: Opaque
