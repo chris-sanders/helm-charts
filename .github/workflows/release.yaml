@@ -28,9 +28,9 @@
            CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
        - name: Run chart-releaser for gollum
-          uses: helm/chart-releaser-action@v1.2.1
-          env:
-            CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          with:
-              charts_dir: k8s-at-home/stable/gollum
+         uses: helm/chart-releaser-action@v1.2.1
+         env:
+           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+         with:
+           charts_dir: k8s-at-home/stable/gollum
 
