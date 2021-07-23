@@ -10,7 +10,7 @@
        - name: Checkout
          uses: actions/checkout@v2
          with:
-             submoduels: recursive
+             submodules: recursive
 
        - name: Configure Git
          run: |
