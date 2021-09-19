@@ -3,6 +3,29 @@ entries:
   emanote:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-09-19T16:18:25.829851417Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.0.1
+    description: Emanote website creation from extended markdown documents
+    digest: 517a82d5334f731ac7bd6e01e4dee047c470f713d84c9c0941059fb78311a5d9
+    home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/emanote
+    keywords:
+    - emanote
+    - zettelkasten
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: sanders.chris@gmail.com
+      name: chris-sanders
+    name: emanote
+    sources:
+    - https://github.com/srid/emanote
+    urls:
+    - https://github.com/chris-sanders/helm-charts/releases/download/emanote-1.0.1/emanote-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-09-16T03:19:49.802825151Z"
     dependencies:
     - name: common
@@ -81,4 +104,4 @@ entries:
     urls:
     - https://github.com/chris-sanders/helm-charts/releases/download/sftp-1.0.0/sftp-1.0.0.tgz
     version: 1.0.0
-generated: "2021-09-16T03:19:49.802834551Z"
+generated: "2021-09-19T16:18:25.829862217Z"
