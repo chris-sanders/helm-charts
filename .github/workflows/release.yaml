@@ -29,6 +29,8 @@
          run: |
            export KOTS_VERSION=${CHART_VERSION%-*}
            export KOTS_TAG=v${KOTS_VERSION}
+           curl -O -L https://raw.githubusercontent.com/replicatedhq/kots/${KOTS_TAG}/.image.env
+           export $(cat .image.env | sed 's/#.*//g' | xargs)
            cd charts/kots-helm
            envsubst < Chart.yaml.tmpl > Chart.yaml
            envsubst < values.yaml.tmpl > values.yaml
