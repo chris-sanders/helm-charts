@@ -3,4 +3,4 @@
 	url = git@github.com:replicatedhq/kots-helm.git
 [submodule "dynamic-localpv-provisioner"]
 	path = dynamic-localpv-provisioner
-	url = https://github.com/openebs/dynamic-localpv-provisioner.git
+	url = git@github.com:chris-sanders/dynamic-localpv-provisioner.git
