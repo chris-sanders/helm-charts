@@ -23,6 +23,16 @@
          with:
            version: v3.6.3
 
+       - name: Generate KOTS files
+         env:
+           CHART_VERSION: 1.76.1
+         run: |
+           export KOTS_VERSION=${CHART_VERSION%-*}
+           export KOTS_TAG=v${KOTS_VERSION}
+           cd charts/kots-helm
+           envsubst < Chart.yaml.tmpl > Chart.yaml
+           envsubst < values.yaml.tmpl > values.yaml
+
        - name: Run chart-releaser for charts
          uses: helm/chart-releaser-action@v1.2.1
          env:

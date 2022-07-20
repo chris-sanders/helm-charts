@@ -1,0 +1,3 @@
+[submodule "charts/kots-helm"]
+	path = charts/kots-helm
+	url = git@github.com:replicatedhq/kots-helm.git
