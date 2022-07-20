@@ -84,6 +84,38 @@ entries:
     urls:
     - https://github.com/chris-sanders/helm-charts/releases/download/gollum-2.1.1/gollum-2.1.1.tgz
     version: 2.1.1
+  localpv-provisioner:
+  - apiVersion: v2
+    appVersion: 3.3.0
+    created: "2022-07-20T22:22:48.393292523Z"
+    dependencies:
+    - condition: openebsNDM.enabled
+      name: openebs-ndm
+      repository: https://openebs.github.io/node-disk-manager
+      version: 2.0.0
+    description: Helm chart for OpenEBS Dynamic Local PV. For instructions to install
+      OpenEBS Dynamic Local PV using helm chart, refer to https://openebs.github.io/dynamic-localpv-provisioner/.
+    digest: b150ff66a135edeb70a156d094efa861d5e794d71784556aecee4251e0016e1f
+    home: http://www.openebs.io/
+    icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/openebs/icon/color/openebs-icon-color.png
+    keywords:
+    - storage
+    - local
+    - dynamic-localpv
+    maintainers:
+    - email: akhil.mohan@mayadata.io
+      name: akhilerm
+    - email: kiran.mova@mayadata.io
+      name: kiranmova
+    - email: prateek.pandey@mayadata.io
+      name: prateekpandey14
+    name: localpv-provisioner
+    sources:
+    - https://github.com/openebs/dynamic-localpv-provisioner
+    type: application
+    urls:
+    - https://github.com/chris-sanders/helm-charts/releases/download/localpv-provisioner-3.3.0-1/localpv-provisioner-3.3.0-1.tgz
+    version: 3.3.0-1
   samba:
   - apiVersion: v2
     created: "2020-10-09T01:06:23.880796775Z"
@@ -115,4 +147,4 @@ entries:
     urls:
     - https://github.com/chris-sanders/helm-charts/releases/download/sftp-1.0.0/sftp-1.0.0.tgz
     version: 1.0.0
-generated: "2022-07-20T18:51:25.646212694Z"
+generated: "2022-07-20T22:22:48.393312523Z"
