@@ -1,3 +1,6 @@
 [submodule "charts/kots-helm"]
 	path = charts/kots-helm
 	url = git@github.com:replicatedhq/kots-helm.git
+[submodule "dynamic-localpv-provisioner"]
+	path = dynamic-localpv-provisioner
+	url = https://github.com/openebs/dynamic-localpv-provisioner.git
