@@ -13,6 +13,16 @@ entries:
     version: 1.76.1
   - apiVersion: v2
     appVersion: 1.76.1
+    created: "2022-07-21T02:27:20.898860667Z"
+    description: A Helm chart for installing KOTS Admin Conole
+    digest: faa67fab6ec116739f9a56276dd4f168dc2e271a1100f415916057b7c2180f74
+    name: admin-console
+    type: application
+    urls:
+    - https://github.com/chris-sanders/helm-charts/releases/download/admin-console-1.76.1-2/admin-console-1.76.1-2.tgz
+    version: 1.76.1-2
+  - apiVersion: v2
+    appVersion: 1.76.1
     created: "2022-07-21T02:10:47.096578523Z"
     description: A Helm chart for installing KOTS Admin Conole
     digest: cf3d81ac102674fea74f2ee5382a2f468317fd130833f5f4e48b801e85e2c733
@@ -157,4 +167,4 @@ entries:
     urls:
     - https://github.com/chris-sanders/helm-charts/releases/download/sftp-1.0.0/sftp-1.0.0.tgz
     version: 1.0.0
-generated: "2022-07-21T02:10:47.096591423Z"
+generated: "2022-07-21T02:27:20.898881767Z"
