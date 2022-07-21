@@ -1,6 +1,6 @@
 [submodule "charts/kots-helm"]
 	path = charts/kots-helm
-	url = git@github.com:replicatedhq/kots-helm.git
+	url = git@github.com:chris-sanders/kots-helm.git
 [submodule "dynamic-localpv-provisioner"]
 	path = dynamic-localpv-provisioner
 	url = git@github.com:chris-sanders/dynamic-localpv-provisioner.git
