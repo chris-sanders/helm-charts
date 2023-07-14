@@ -1,0 +1,19 @@
+apiVersion: v2
+appVersion: 1
+name: outline
+version: 0.0.1
+description: outline wiki
+dependencies:
+- name: replicated-library
+  repository: file://../../../helm-charts-library/charts/replicated-library
+  #repository: https://replicatedhq.github.io/helm-charts
+  version: '*'
+- name: postgresql
+  repository: oci://registry-1.docker.io/bitnamicharts
+  version: 12.6.5
+  condition: postgresql.enabled
+- name: redis
+  repository: oci://registry-1.docker.io/bitnamicharts
+  version: 17.11.8
+  condition: redis.enabled
+kubeVersion: '>=1.20.0-0'

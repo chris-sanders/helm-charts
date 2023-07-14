@@ -1,0 +1,51 @@
+redis:
+  enabled: false
+postgresql:
+  enabled: false
+  auth:
+    username: outline
+    password: outlinePass
+    database: outline
+apps:
+  outline:
+    enabled: true
+    type: deployment
+    containers:
+      outline:
+        image:
+          repository: outlinewiki/outline
+          tag: 0.70.2
+services:
+  outline:
+    enabled: true
+    appName: [outline]
+    type: ClusterIP
+    ports:
+      http: 
+        enabled: true
+        port: 3000
+        targetPort: 3000
+        protocol: http
+        
+outline:
+  # Generate a hex-encoded 32-byte random key. You should use `openssl rand -hex 32`
+  secretKey: 
+  # Generate a unique random key. `openssl rand -hex 32` in your terminal to produce this.
+  utilsSecret: 
+  # External URL
+  url: 
+  port: 3000
+  # To configure generic OIDC auth, you'll need some kind of identity provider.
+  # See documentation for whichever IdP you use to acquire the following info:
+  # Redirect URI is https://<URL>/auth/oidc.callback
+  oidc:
+    clientId: 
+    clientSecret:
+    authUri:
+    tokenUri:
+    userInfoUri:
+    usernameClaim: preferred_username
+    displayName: OpenID Connect
+    scopes: openid profile email
+  # Additional env variables for the outline container
+  extraEnv: {}
