@@ -1,5 +1,8 @@
 redis:
   enabled: false
+  architecture: standalone
+  auth:
+    enabled: false
 postgresql:
   enabled: false
   auth:
@@ -10,11 +13,6 @@ apps:
   outline:
     enabled: true
     type: deployment
-    containers:
-      outline:
-        image:
-          repository: outlinewiki/outline
-          tag: 0.70.2
 services:
   outline:
     enabled: true
@@ -25,8 +23,7 @@ services:
         enabled: true
         port: 3000
         targetPort: 3000
-        protocol: http
-        
+        protocol: TCP
 outline:
   # Generate a hex-encoded 32-byte random key. You should use `openssl rand -hex 32`
   secretKey: 
@@ -34,7 +31,12 @@ outline:
   utilsSecret: 
   # External URL
   url: 
+  image:
+    repository: outlinewiki/outline
+    tag: 0.70.2
   port: 3000
+  # don't use TLS for the database connection
+  pgsslmode: disable
   # To configure generic OIDC auth, you'll need some kind of identity provider.
   # See documentation for whichever IdP you use to acquire the following info:
   # Redirect URI is https://<URL>/auth/oidc.callback
