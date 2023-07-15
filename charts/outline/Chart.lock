@@ -3,10 +3,10 @@ dependencies:
   repository: https://replicatedhq.github.io/helm-charts
   version: 0.13.7
 - name: postgresql
-  repository: oci://registry-1.docker.io/bitnamicharts
+  repository: https://charts.bitnami.com/bitnami
   version: 12.6.5
 - name: redis
-  repository: oci://registry-1.docker.io/bitnamicharts
+  repository: https://charts.bitnami.com/bitnami
   version: 17.11.8
-digest: sha256:b2d950af3be922bc7263e0e07dc560f7be6b6d506bd94bdf4bb30281cad0af2e
-generated: "2023-07-15T18:05:21.252546134-05:00"
+digest: sha256:593b1fe2f954ef4d63d32a8a8972d4faf950dce6fc94c1a2461370d8c9b0d649
+generated: "2023-07-15T18:21:47.833096165-05:00"
