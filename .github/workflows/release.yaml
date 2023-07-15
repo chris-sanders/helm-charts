@@ -19,9 +19,9 @@
            git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
        - name: Install Helm
-         uses: azure/setup-helm@v1
+         uses: azure/setup-helm@v3
          with:
-           version: v3.6.3
+           version: latest
 
        - name: Add repositories
          run: |
