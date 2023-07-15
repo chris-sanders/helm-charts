@@ -1,0 +1,2 @@
+# Ignore helm dependency files
+charts/*/charts
