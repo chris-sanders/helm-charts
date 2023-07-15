@@ -5,9 +5,9 @@ version: 0.0.1
 description: outline wiki
 dependencies:
 - name: replicated-library
-  repository: file://../../../helm-charts-library/charts/replicated-library
-  #repository: https://replicatedhq.github.io/helm-charts
-  version: '*'
+  #repository: file://../../../helm-charts-library/charts/replicated-library
+  repository: https://replicatedhq.github.io/helm-charts
+  version: '^0.13.7'
 - name: postgresql
   repository: oci://registry-1.docker.io/bitnamicharts
   version: 12.6.5
