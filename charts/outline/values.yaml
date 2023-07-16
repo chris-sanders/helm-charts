@@ -12,7 +12,8 @@ postgresql:
 minio:
   enabled: false
   auth:
-    rootUser: outline
+    # These must be longer than 8 characters!
+    rootUser: outlinerootuser
     rootPassword: outlinePass
 apps:
   outline:
