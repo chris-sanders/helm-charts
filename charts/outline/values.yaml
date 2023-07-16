@@ -44,7 +44,8 @@ outline:
   # don't use TLS for the database connection
   pgsslmode: disable
   # Override minio settings
-  s3: {}
+  s3:
+    url: 
   # To configure generic OIDC auth, you'll need some kind of identity provider.
   # See documentation for whichever IdP you use to acquire the following info:
   # Redirect URI is https://<URL>/auth/oidc.callback
