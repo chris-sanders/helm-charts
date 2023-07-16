@@ -35,7 +35,7 @@ apps:
           {{- if .Values.minio.enabled }}
             {{- $url := "initialized" }}
             {{- if .Values.minio.fullnameOverride }}
-              {{- $url = print .Values.redis.fullnameOverride }}
+              {{- $url = print .Values.minio.fullnameOverride }}
             {{- else }}
               {{- $url = print .Release.Name "-minio" }}
             {{- end }}
