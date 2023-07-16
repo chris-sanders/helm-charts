@@ -189,6 +189,32 @@ entries:
   outline:
   - apiVersion: v2
     appVersion: "1"
+    created: "2023-07-16T16:47:01.43105015Z"
+    dependencies:
+    - name: replicated-library
+      repository: https://replicatedhq.github.io/helm-charts
+      version: ^0.13.7
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.6.5
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.11.8
+    - condition: minio.enabled
+      name: minio
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.6.9
+    description: outline wiki
+    digest: 22e5d8f9721009e7ce094567a11e9f9d7f2a33fb42801781396003f75a2e3a84
+    kubeVersion: '>=1.20.0-0'
+    name: outline
+    urls:
+    - https://github.com/chris-sanders/helm-charts/releases/download/outline-0.0.10/outline-0.0.10.tgz
+    version: 0.0.10
+  - apiVersion: v2
+    appVersion: "1"
     created: "2023-07-16T16:42:47.006341904Z"
     dependencies:
     - name: replicated-library
@@ -448,4 +474,4 @@ entries:
     urls:
     - https://github.com/chris-sanders/helm-charts/releases/download/sftp-1.0.0/sftp-1.0.0.tgz
     version: 1.0.0
-generated: "2023-07-16T16:42:47.006558309Z"
+generated: "2023-07-16T16:47:01.431253051Z"
