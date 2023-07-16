@@ -9,6 +9,11 @@ postgresql:
     username: outline
     password: outlinePass
     database: outline
+minio:
+  enabled: false
+  auth:
+    rootUser: outline
+    rootPassword: outlinePass
 apps:
   outline:
     enabled: true
@@ -37,6 +42,8 @@ outline:
   port: 3000
   # don't use TLS for the database connection
   pgsslmode: disable
+  # Override minio settings
+  s3: {}
   # To configure generic OIDC auth, you'll need some kind of identity provider.
   # See documentation for whichever IdP you use to acquire the following info:
   # Redirect URI is https://<URL>/auth/oidc.callback

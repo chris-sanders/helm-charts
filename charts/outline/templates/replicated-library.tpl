@@ -31,7 +31,22 @@ apps:
               {{- $url = print .Release.Name "-redis-master" }}
             {{- end }}
           REDIS_URL: redis://{{ $url }}:6379
-          {{ end }}
+          {{- end }}
+          {{- if .Values.minio.enabled }}
+            {{- $url := "initialized" }}
+            {{- if .Values.minio.fullnameOverride }}
+              {{- $url = print .Values.redis.fullnameOverride }}
+            {{- else }}
+              {{- $url = print .Release.Name "-minio" }}
+            {{- end }}
+          AWS_S3_BUCKET_URL_URL: http://{{ $url }}
+          AWS_REGION: {{ default "us-east-2" .Values.outline.s3.region }}
+          AWS_S3_FORCE_PATH_STYLE: {{ default true .Values.outline.s3.forcePathStyle }}
+          AWS_S3_UPLOAD_BUCKET_NAME: {{ default "outline" .Values.outline.s3.bucketName }}
+          AWS_S3_UPLOAD_MAX_SIZE: {{ default 26214400 .Values.outline.s3.uploadMaxSize }}
+          AWS_ACCESS_KEY_ID: {{ .Values.minio.auth.rootUser }}
+          AWS_SECRET_ACCCESS_KEY: {{ .Values.minio.auth.rootPassword }}
+          {{- end }}
           PORT: {{ .Values.outline.port }}
           PGSSLMODE: {{ .Values.outline.pgsslmode }}
           {{- if .Values.outline.oidc.clientId }}
