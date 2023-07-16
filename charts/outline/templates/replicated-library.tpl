@@ -39,13 +39,13 @@ apps:
             {{- else }}
               {{- $url = print .Release.Name "-minio" }}
             {{- end }}
-          AWS_S3_BUCKET_URL: http://{{ $url }}:9000
           AWS_REGION: {{ default "us-east-2" .Values.outline.s3.region }}
           AWS_S3_FORCE_PATH_STYLE: {{ default true .Values.outline.s3.forcePathStyle }}
+          AWS_S3_UPLOAD_BUCKET_URL: http://{{ $url }}:9000
           AWS_S3_UPLOAD_BUCKET_NAME: {{ default "outline-bucket" .Values.outline.s3.bucketName }}
           AWS_S3_UPLOAD_MAX_SIZE: {{ default ("26214400" | quote) .Values.outline.s3.uploadMaxSize }}
           AWS_ACCESS_KEY_ID: {{ .Values.minio.auth.rootUser }}
-          AWS_SECRET_ACCCESS_KEY: {{ .Values.minio.auth.rootPassword }}
+          AWS_SECRET_ACCESS_KEY: {{ .Values.minio.auth.rootPassword }}
           {{- end }}
           PORT: {{ .Values.outline.port }}
           PGSSLMODE: {{ .Values.outline.pgsslmode }}
