@@ -13,6 +13,7 @@ If you enable minio for S3 you need to configure `outline.s3.url` this needs to 
 Additionally, you need to log into the minio console (port 9001 via browser) with your key and secret key and add a bucket for outline to use. This is set to `outline-bucket` by default after creating the bucket file uploads work. Note that the bucket name `outline` is know to not work.
 
 Finally you will need to log into the minio cloud and set the public policy on the public portion of the minio bucket. From the pod run: 
+
 `mc alias set minio http://localhost:9000 your-minio-access-key your-minio-secret`
 
 `mc anonymous set public minio/outline-bucket/public`
