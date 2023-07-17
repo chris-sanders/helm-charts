@@ -14,6 +14,7 @@ Additionally, you need to log into the minio console (port 9001 via browser) wit
 
 Finally you will need to log into the minio cloud and set the public policy on the public portion of the minio bucket. From the pod run: 
 `mc alias set minio http://localhost:9000 your-minio-access-key your-minio-secret`
+
 `mc anonymous set public minio/outline-bucket/public`
 
 Minio keys require a string > 8 characters long, and the pod will simply fail to start if not provided.
