@@ -1,0 +1,88 @@
+global:
+  fullNameOverride: "net1"
+apps:
+  headscale:
+    enabled: true
+    type: statefulset
+    containers:
+      headscale:
+        command:
+          - headscale
+        args: 
+          - serve
+        volumeMounts:
+        - name: data
+          mountPath: /vol/data
+        - name: config
+          mountPath: /etc/headscale/config.yaml
+          subPath: etc
+          readOnly: true
+    volumes:
+    - name: data
+      persistentVolumeClaim:
+        claimName: data
+    - name: config
+      configMap:
+        name: net1-headscale
+
+services:
+  headscale:
+    enabled: true
+    appName: ["headscale"]
+    ports:
+      http:
+        enabled: true
+        port: 8080
+        protocol: HTTP
+        targetPort: 8080
+      grpc:
+        enabled: true
+        port: 50443
+        protocol: TCP
+        targetPort: 50443
+      derp:
+        enabled: true
+        port: 3478
+        protocol: UDP
+        targetPort: 3478
+
+persistence:
+  data:
+    enabled: true
+    type: persistentVolumeClaim
+    persistentVolumeClaim:
+      #existingClaimName: existing-claim-name
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        volumeMode: Filesystem
+        persistentvolumeReclaimPolicy: Retain
+        resources:
+          requests:
+            storage: 1Gi
+
+configmaps:
+  headscale:
+    enabled: true
+
+# Setting at the top level for convenience
+image:
+  repository: ghcr.io/juanfont/headscale
+  tag: 0.22.3
+
+# headscale config
+headscale:
+  # See https://github.com/replicatedhq/helm-charts/blob/main/charts/replicated-library/values-example.yaml
+  config:
+    server_url: http://127.0.0.1:8080
+    listen_addr: 0.0.0.0:8080
+    grpc_listen_addr: 0.0.0.0:50443
+    grpc_allow_insecure: true
+    private_key_path: /vol/data/private.key
+    noise:
+      private_key_path: /vol/data/noise_private.key
+    ip_prefixes:
+      - fd7a:115c:a1e0::/48
+      - 100.64.0.0/10
+    db_type: sqlite3
+    db_path: /vol/data/db.sqlite
