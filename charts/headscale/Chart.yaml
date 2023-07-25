@@ -1,7 +1,7 @@
 apiVersion: v2
 appVersion: 1
 name: headscale
-version: 0.0.1-beta.1
+version: 0.0.1-beta.2
 description: headscale open source tailscale implementation
 dependencies:
 - name: replicated-library

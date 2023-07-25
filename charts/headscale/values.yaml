@@ -10,6 +10,13 @@ apps:
           - headscale
         args: 
           - serve
+        ports:
+        - name: http
+          containerPort: 8080
+        - name: grpc
+          containerPort: 50443
+        - name: derp
+          containerPort: 3478
         volumeMounts:
         - name: data
           mountPath: /vol/data
@@ -33,7 +40,7 @@ services:
       http:
         enabled: true
         port: 8080
-        protocol: HTTP
+        protocol: TCP
         targetPort: 8080
       grpc:
         enabled: true
@@ -77,12 +84,49 @@ headscale:
     server_url: http://127.0.0.1:8080
     listen_addr: 0.0.0.0:8080
     grpc_listen_addr: 0.0.0.0:50443
-    grpc_allow_insecure: true
+    #grpc_allow_insecure: true
+    metrics_listen_addr: 0.0.0.0:9090
     private_key_path: /vol/data/private.key
     noise:
       private_key_path: /vol/data/noise_private.key
     ip_prefixes:
-      - fd7a:115c:a1e0::/48
       - 100.64.0.0/10
+      - fd7a:115c:a1e0::/48
     db_type: sqlite3
     db_path: /vol/data/db.sqlite
+
+    grpc_allow_insecure: false
+   
+    derp:
+       server:
+         enabled: false
+         region_id: 999
+         region_code: "headscale"
+         region_name: "Headscale Embedded DERP"
+         stun_listen_addr: "0.0.0.0:3478"
+       urls:
+         - https://controlplane.tailscale.com/derpmap/default
+       paths: []
+       auto_update_enabled: true
+       update_frequency: 24h
+    disable_check_updates: true
+    ephemeral_node_inactivity_timeout: 30m
+    node_update_check_interval: 10s
+    tls_cert_path: ""
+    tls_key_path: ""
+    log:
+      format: text
+      level: debug
+    acl_policy_path: ""
+    dns_config:
+      override_local_dns: true
+      nameservers:
+        - 1.1.1.1
+      domains: []
+      magic_dns: true
+      base_domain: tailscale.local
+    unix_socket: /var/run/headscale/headscale.sock
+    unix_socket_permission: "0770"
+    logtail:
+      enabled: false
+    randomize_client_port: false
