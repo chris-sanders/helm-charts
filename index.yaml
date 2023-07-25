@@ -154,6 +154,21 @@ entries:
     urls:
     - https://github.com/chris-sanders/helm-charts/releases/download/gollum-2.1.1/gollum-2.1.1.tgz
     version: 2.1.1
+  headscale:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2023-07-25T23:05:11.723860361Z"
+    dependencies:
+    - name: replicated-library
+      repository: https://replicatedhq.github.io/helm-charts
+      version: ^0.13.7
+    description: headscale open source tailscale implementation
+    digest: 99f991257a3fa9915a1192ab2b27451ee07f53b92ce6701437be9adcfe69c376
+    kubeVersion: '>=1.25.0-0'
+    name: headscale
+    urls:
+    - https://github.com/chris-sanders/helm-charts/releases/download/headscale-0.0.1-beta.2/headscale-0.0.1-beta.2.tgz
+    version: 0.0.1-beta.2
   localpv-provisioner:
   - apiVersion: v2
     appVersion: 3.3.0
@@ -500,4 +515,4 @@ entries:
     urls:
     - https://github.com/chris-sanders/helm-charts/releases/download/sftp-1.0.0/sftp-1.0.0.tgz
     version: 1.0.0
-generated: "2023-07-16T17:08:14.974497734Z"
+generated: "2023-07-25T23:05:11.724031262Z"
