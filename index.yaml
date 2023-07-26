@@ -515,4 +515,22 @@ entries:
     urls:
     - https://github.com/chris-sanders/helm-charts/releases/download/sftp-1.0.0/sftp-1.0.0.tgz
     version: 1.0.0
-generated: "2023-07-25T23:05:11.724031262Z"
+  wg-easy:
+  - apiVersion: v2
+    created: "2023-07-26T18:41:05.347811507Z"
+    dependencies:
+    - name: replicated-library
+      repository: https://replicatedhq.github.io/helm-charts
+      version: ^0.13.2
+    description: Simple wireguard with web configuration management
+    digest: f6d66b6113d2dee1a84d45dcc62cd8c0efcc967426b336628c243e0f66226943
+    home: https://github.com/chris-sanders/helm-charts/charts/wg-easy
+    maintainers:
+    - email: sanders.chris@gmail.com
+      name: Chris Sanders
+      url: https://github.com/chris-sanders/helm-charts
+    name: wg-easy
+    urls:
+    - https://github.com/chris-sanders/helm-charts/releases/download/wg-easy-0.0.1-beta.1/wg-easy-0.0.1-beta.1.tgz
+    version: 0.0.1-beta.1
+generated: "2023-07-26T18:41:05.347893808Z"
