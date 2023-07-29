@@ -16,6 +16,9 @@ configmaps:
 {{- $headscaleConfig := .Values.headscale.config | toYaml | trim }}
       etc: | 
 {{ $headscaleConfig | indent 8 }}
+{{- $headscaleAcl := .Values.headscale.acl | toYaml | trim }}
+      acl: |
+{{ $headscaleAcl | indent 8 }}
 {{ end }}
 {{ $_ := mergeOverwrite .Values (include "hardcodedValues" . | fromYaml) }}
 

@@ -1,11 +1,11 @@
 apiVersion: v2
-appVersion: 1
 name: headscale
-version: 0.0.1-beta.2
+version: 0.0.1-beta.4
 description: headscale open source tailscale implementation
 dependencies:
 - name: replicated-library
   #repository: file://../../../helm-charts-library/charts/replicated-library
-  repository: https://replicatedhq.github.io/helm-charts
-  version: '^0.13.7'
+  #repository: https://replicatedhq.github.io/helm-charts
+  repository: https://chris-sanders.github.io/replicated-helm-charts
+  version: '0.13.9-beta.1'
 kubeVersion: '>=1.25.0-0'
