@@ -3,9 +3,11 @@ name: headscale
 version: 0.0.1-beta.4
 description: headscale open source tailscale implementation
 dependencies:
-- name: replicated-library
+#- name: replicated-library
   #repository: file://../../../helm-charts-library/charts/replicated-library
   #repository: https://replicatedhq.github.io/helm-charts
+- name: replicated-library-csanders
   repository: https://chris-sanders.github.io/replicated-helm-charts
   version: '0.13.9-beta.1'
+  alias: replicated-library
 kubeVersion: '>=1.25.0-0'
