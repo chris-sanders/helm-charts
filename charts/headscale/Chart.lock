@@ -1,6 +1,6 @@
 dependencies:
-- name: replicated-library-csanders
-  repository: https://chris-sanders.github.io/replicated-helm-charts
-  version: 0.13.9-beta.1
-digest: sha256:431b563fd1585d2a272c58e8524356027dfd4f96460e4ffb68a4bbb56ab2aab2
-generated: "2023-07-29T00:50:11.780460019-05:00"
+- name: replicated-library
+  repository: https://replicatedhq.github.io/helm-charts
+  version: 0.13.9
+digest: sha256:54a8c7727a79ded51838fdef74109c985d747b2f98ffd3ed141875d6de400450
+generated: "2023-08-01T18:35:08.296089795-05:00"
