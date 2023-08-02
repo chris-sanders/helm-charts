@@ -156,6 +156,19 @@ entries:
     version: 2.1.1
   headscale:
   - apiVersion: v2
+    created: "2023-08-02T00:13:49.665019619Z"
+    dependencies:
+    - name: replicated-library
+      repository: https://replicatedhq.github.io/helm-charts
+      version: ^0.13.9
+    description: headscale open source tailscale implementation
+    digest: 9c576c2ae6046f2e3cafbf65d196518b8161c873aa44b7642e36342e766efcd4
+    kubeVersion: '>=1.25.0-0'
+    name: headscale
+    urls:
+    - https://github.com/chris-sanders/helm-charts/releases/download/headscale-0.0.1/headscale-0.0.1.tgz
+    version: 0.0.1
+  - apiVersion: v2
     created: "2023-08-01T23:35:41.588531357Z"
     dependencies:
     - name: replicated-library
@@ -577,4 +590,4 @@ entries:
     urls:
     - https://github.com/chris-sanders/helm-charts/releases/download/wg-easy-0.0.1-beta.1/wg-easy-0.0.1-beta.1.tgz
     version: 0.0.1-beta.1
-generated: "2023-08-01T23:35:41.588840657Z"
+generated: "2023-08-02T00:13:49.665370224Z"
