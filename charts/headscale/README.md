@@ -1,6 +1,6 @@
 # headscale
 
-![Version: 0.0.1-beta.5](https://img.shields.io/badge/Version-0.0.1--beta.5-informational?style=flat-square)
+![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square)
 
 headscale open source tailscale implementation
 
@@ -47,6 +47,10 @@ headscale:
   acl:
     <your acl config here>
 ```
+
+### Tailscale Router
+
+To use this chart you will need to add clients. This chart has been tested with tailscale routers from https://gtaylor.github.io/helm-charts which can provide exit nodes in Kubernetes.
 
 ## Updating the README
 
