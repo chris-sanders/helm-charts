@@ -3,7 +3,7 @@ apps:
     enabled: true
     type: deployment
     replicas: 1
-    securityContext:
+    podSecurityContext:
       sysctls:
         - name: net.ipv4.ip_forward
           value: "1"
