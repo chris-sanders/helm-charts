@@ -570,6 +570,23 @@ entries:
     version: 1.0.0
   wg-easy:
   - apiVersion: v2
+    created: "2023-12-27T22:35:01.751506888Z"
+    dependencies:
+    - name: replicated-library
+      repository: https://replicatedhq.github.io/helm-charts
+      version: ^0.13.2
+    description: Simple wireguard with web configuration management
+    digest: 2bed11400d61f0f7405c0a324f08a7d14c184ebd4d01ef7fd1af3d53834d07b9
+    home: https://github.com/chris-sanders/helm-charts/charts/wg-easy
+    maintainers:
+    - email: sanders.chris@gmail.com
+      name: Chris Sanders
+      url: https://github.com/chris-sanders/helm-charts
+    name: wg-easy
+    urls:
+    - https://github.com/chris-sanders/helm-charts/releases/download/wg-easy-0.0.3/wg-easy-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
     created: "2023-12-27T22:26:52.79374115Z"
     dependencies:
     - name: replicated-library
@@ -620,4 +637,4 @@ entries:
     urls:
     - https://github.com/chris-sanders/helm-charts/releases/download/wg-easy-0.0.1-beta.1/wg-easy-0.0.1-beta.1.tgz
     version: 0.0.1-beta.1
-generated: "2023-12-27T22:26:52.793844192Z"
+generated: "2023-12-27T22:35:01.75157763Z"
