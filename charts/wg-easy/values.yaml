@@ -3,11 +3,15 @@ apps:
     enabled: true
     type: deployment
     replicas: 1
+    securityContext:
+      sysctls:
+        - name: net.ipv4.ip_forward
+          value: "1"
     containers:
       wg-container:
         image:
           repository: weejewel/wg-easy
-          tag: 7.0
+          tag: 9.0
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
