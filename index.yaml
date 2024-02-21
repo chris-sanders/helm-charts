@@ -257,6 +257,32 @@ entries:
   outline:
   - apiVersion: v2
     appVersion: "1"
+    created: "2024-02-21T16:15:55.490402225Z"
+    dependencies:
+    - name: replicated-library
+      repository: https://replicatedhq.github.io/helm-charts
+      version: ^0.13.7
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.6.5
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.11.8
+    - condition: minio.enabled
+      name: minio
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.6.9
+    description: outline wiki
+    digest: 9395858c89e1940823e3bfdb9c39bb7660ca37969660289266020c028d456af8
+    kubeVersion: '>=1.20.0-0'
+    name: outline
+    urls:
+    - https://github.com/chris-sanders/helm-charts/releases/download/outline-0.0.16/outline-0.0.16.tgz
+    version: 0.0.16
+  - apiVersion: v2
+    appVersion: "1"
     created: "2024-02-21T16:07:42.033009935Z"
     dependencies:
     - name: replicated-library
@@ -799,4 +825,4 @@ entries:
     urls:
     - https://github.com/chris-sanders/helm-charts/releases/download/wg-easy-0.0.1-beta.1/wg-easy-0.0.1-beta.1.tgz
     version: 0.0.1-beta.1
-generated: "2024-02-21T16:07:42.033159656Z"
+generated: "2024-02-21T16:15:55.490607127Z"
