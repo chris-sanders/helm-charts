@@ -55,6 +55,7 @@ apps:
           {{- end }}
           FILE_STORAGE_IMPORT_MAX_SIZE: {{ default ("100000000" | quote) .Values.outline.fileStorageImportMaxSize }}
           FILE_STORAGE_WORKSPACE_IMPORT_MAX_SIZE: {{ default ("100000000" | quote) .Values.outline.fileStorageWorkspaceImportMaxSize }}
+          MAXIMUM_IMPORT_SIZE: {{ default ("100000000" | quote) .Values.outline.maximumImportSize }}
           {{- range $k, $v := .Values.outline.extraEnv }}
           {{ $k }}: {{ $v }}
           {{- end }}
