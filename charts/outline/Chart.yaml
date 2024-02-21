@@ -1,7 +1,7 @@
 apiVersion: v2
 appVersion: 1
 name: outline
-version: 0.0.11
+version: 0.0.12
 description: outline wiki
 dependencies:
 - name: replicated-library

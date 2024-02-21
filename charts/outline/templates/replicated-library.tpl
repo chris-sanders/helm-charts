@@ -53,6 +53,7 @@ apps:
           OIDC_DISPLAY_NAME: {{ .Values.outline.oidc.displayName }}
           OIDC_SCOPES: {{ .Values.outline.oidc.scopes }}
           {{- end }}
+          FILE_STORAGE_IMPORT_MAX_SIZE: {{ default 100000000 .Values.outline.fileStorageImportMaxSize }}
           {{- range $k, $v := .Values.outline.extraEnv }}
           {{ $k }}: {{ $v }}
           {{- end }}
